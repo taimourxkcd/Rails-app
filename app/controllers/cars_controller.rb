@@ -3,12 +3,19 @@ class CarsController < ApplicationController
 
 
         def index
-            @book = Book.all
-            render :index
+            @car = Car.all
+
         end
     
         def show
-     
+            @car = Car.find_by(id: params[:id])
+            @book = Book.first
+
+            if @car
+                render :show
+            else
+                redirect_to car_url
+            end 
     
         end
     
@@ -17,6 +24,12 @@ class CarsController < ApplicationController
             @car = Car.new(car_params)
     
         end
+
+
+        def new
+        
+        end
+
     
         private
     

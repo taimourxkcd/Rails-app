@@ -12,7 +12,7 @@ class BooksController < ApplicationController
         if @book
             render :show
         else
-            redirect_to books_url
+            redirect_to book_url
         end 
 
     end

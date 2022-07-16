@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       resources :books, only: [:index, :new, :create] 
     end
 
-    resources :cars, only: [:show, :update, :destroy, :edit]
+    resources :cars, :only => [:show, :update, :destroy, :edit]
     resources :books, only: [:show, :update, :destroy, :edit]
 
   
