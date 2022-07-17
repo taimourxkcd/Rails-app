@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
+  get 'signup', to: 'users#new'
+
   # resources :book
 
-    resources :users do
+    resources :users, except: [:new] do
       resources :cars, only: [:index, :new, :create] 
     end
 
