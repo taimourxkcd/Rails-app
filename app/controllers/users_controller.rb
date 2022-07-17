@@ -34,14 +34,14 @@ class UsersController < ApplicationController
 
     def edit
 
-        @user = User.find_by(params[:id])
+        @user = User.find_by(id: params[:id])
     end
 
     def update 
         @user = User.find(params[:id])
         if @user.update(user_params)
             flash[:notice] = "Your account information was successfully updated"
-            redirect_to users_path
+            redirect_to @user
         else
             render 'edit'
         end
