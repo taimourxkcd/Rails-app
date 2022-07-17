@@ -9,10 +9,12 @@ class UsersController < ApplicationController
     end
 
     def create 
-        @user = User.new(params[:user])
+
+        @user = User.new(user_params)
 
         if @user.save
-            redirect_to user_url(@user)
+            flash[:notice] = "Welcome #{@user.name} you have successfully signed up"
+            redirect_to users_path
         else
             render :new
         end
@@ -20,11 +22,12 @@ class UsersController < ApplicationController
 
     def show
     @user = User.find_by(params[:id])
+
     end
 
     def new
         @user = User.new
-        render :new
+
         
     end
 
