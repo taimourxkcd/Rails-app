@@ -1,0 +1,27 @@
+<h1>Login form</h1>
+
+<% http_method = @user.new_record? ? "POST" : "PATCH" %>
+<% action_url = @user.new_record? ? users_url : user_url(@user) %>
+
+
+
+  <%= form_with(scope: :session, url: login_path,  local: true) do |f| %>
+    <div>
+      <%= f.label :email %>
+      <div class="col-10"> 
+        <%= f.email_field :email, placeholder: "Enter your email address" %>
+      </div>
+    </div>
+
+    <div>
+      <%= f.label :password %>
+      <div> 
+        <%= f.password_field :password, placeholder: "Enter your password" %>
+      </div>
+    </div>
+
+    <div>
+      <%= f.submit "Log in" %>
+    </div>
+  <% end %>
+
