@@ -55,6 +55,9 @@ class UsersController < ApplicationController
     def destroy
         @user = User.find_by(email: current_user.email)
         @user.destroy
+        session[:user_id] = nil
+        flash[:notice] = "User id and all the associated articles have been destroyed"
+        redirect_to articles_path
     end
 
 
