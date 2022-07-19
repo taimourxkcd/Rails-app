@@ -2,12 +2,9 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "user#index"
+  root "users#index"
 
-  get 'signup', to: 'sessions#new'
-  get 'login', to: 'sessions#create'
-  post 'login', to: 'sessions#new'
-  delete 'logout', to: 'sessions#destroy'
+  get 'signup', to: 'users#new'
 
   # resources :book
 
@@ -21,7 +18,4 @@ Rails.application.routes.draw do
 
     resources :cars, :only => [:show, :update, :destroy, :edit]
     resources :books, only: [:index, :show, :update, :destroy, :edit]
-
-  
-
 end

@@ -18,7 +18,6 @@ class UsersController < ApplicationController
         else
             render :new
         end
-
     end
 
     def show
@@ -48,10 +47,6 @@ class UsersController < ApplicationController
         end
     end
 
-    def login
-        @user = User.new
-
-    end
 
 
     private
