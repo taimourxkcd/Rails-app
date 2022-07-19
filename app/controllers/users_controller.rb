@@ -52,6 +52,13 @@ class UsersController < ApplicationController
     end
 
 
+    def destroy
+        @user = User.find_by(email: current_user.email)
+        @user.destroy
+    end
+
+
+
 
     private
     
