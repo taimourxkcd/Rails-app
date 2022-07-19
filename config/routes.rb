@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     resources :users do
       resources :books, only: [ :new, :create] 
     end
+    
+    resources :users do
+      resources :articles, only: [ :new, :create] 
+    end
 
     resources :cars, :only => [:show, :update, :destroy, :edit]
     resources :books, only: [:index, :show, :update, :destroy, :edit]

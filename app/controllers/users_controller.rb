@@ -5,6 +5,9 @@ class UsersController < ApplicationController
     def index 
     
     @user = User.all
+    
+    @users = User.paginate(page: params[:page], per_page: 5)
+    
     @user2 = User.find_by(id: 1)
     @car2 = Car.find_by(id: 5)
     end
@@ -53,7 +56,7 @@ class UsersController < ApplicationController
     private
     
     def user_params
-        params.require(:user).permit(:name, :email, :password)
+        params.require(:user).permit(:name, :email, :password, :user_id)
     end
 
     def set_user

@@ -8,7 +8,8 @@ class ArticlesController < ApplicationController
     @articles = @q.result(distinct: true)
 
     @q2 = Article.ransack(params[:q])
-    # @orders = @q.result.includes(:order).page(params[:page]).per(params[:per])
+
+
   end  
 
   def search
@@ -29,11 +30,11 @@ class ArticlesController < ApplicationController
   def create
     @timer = Time.current
       @article = Article.new(article_params)
-     
-
+      @article.user = current_user
+      
     if @article.save
+      flash[:notice] = "Article was successfully created."
       redirect_to @article
-
     else
       render :new, status: :unprocessable_entity
     end
