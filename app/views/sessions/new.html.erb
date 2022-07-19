@@ -5,7 +5,7 @@
 
 
 
-  <%= form_with(scope: :session, url: login_path,  local: true) do |f| %>
+  <%= form_with(scope: :session, url: login_path,  local: true) do |f| %> <%# here it will give a post request to login path triggering create action%>
     <div>
       <%= f.label :email %>
       <div class="col-10"> 
@@ -25,26 +25,3 @@
     </div>
   <% end %>
 
-
-<form session method="POST">
-     <input type="hidden" name="_method" value="<%= http_method %>">
-
-
-    <label for="name">Name</label>
-    <input id="name" type="text" name = user[name]></input>
-    <br>
-  
-    <label for="email">Email</label>
-    <input id="email" type="text" name = user[email]></input>
-    <br>
-  
-    <label for="password">Password</label>
-    <input id="password" type="password" name = user[password]></input>
-    <br>
-    
-    <input id="submit" type="submit" value="<%=  @user.new_record? ? "Sign up" : "Update account"%>"></input>
-    <br>
-
-
-
-</form>
