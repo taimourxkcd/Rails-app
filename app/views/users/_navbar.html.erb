@@ -1,0 +1,9 @@
+<li >
+<%= link_to "Log in", login_path %>
+    <% if logged_in %>
+        <li><%= link_to "Sign out", logout_path, method: :delete %>
+    <% end %>
+
+
+
+</li>

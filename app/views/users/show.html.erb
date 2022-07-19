@@ -1,3 +1,7 @@
+<%= flash[:notice] %>
+<%= render 'navbar'%>
+
+
 <h1> <%= @user.email %> </h1>
 
 <%= gravatar_for @user, size: 200%>

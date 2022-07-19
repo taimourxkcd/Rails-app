@@ -22,4 +22,5 @@ Rails.application.routes.draw do
 
     resources :cars, :only => [:show, :update, :destroy, :edit]
     resources :books, only: [:index, :show, :update, :destroy, :edit]
+    resources :sessions, only: [:index, :show, :update, :edit, :new], except: [:destroy]
 end
