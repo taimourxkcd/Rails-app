@@ -28,4 +28,5 @@ Rails.application.routes.draw do
     resources :books, only: [:index, :show, :update, :destroy, :edit]
     resources :sessions, only: [:index, :show, :update, :edit, :new], except: [:destroy]
     resources :articles
+    resources :categories, except: [:destroy]
 end
