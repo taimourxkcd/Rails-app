@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
-    @timer = Time.current
+
   end
 
   def create
