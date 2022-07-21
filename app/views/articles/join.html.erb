@@ -1,0 +1,8 @@
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+        <%= @article %>
+      <p>It was published at <%=article.created_at.utc%></p>
+    </li>
+  <% end %>
+</ul>

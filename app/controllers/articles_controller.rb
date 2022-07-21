@@ -11,36 +11,34 @@ class ArticlesController < ApplicationController
 
     @category = Category.all
 
-
   end  
 
-  def search
-    
-  end
 
   def show
-
     @article = Article.find(params[:id])
-
   end
 
   def new
     @article = Article.new
-
   end
 
   def create
 
       @article = Article.new(article_params)
       @article.user = current_user
-    
+
+      @article.category_ids = article_params[:category_ids]
+      @article.save!
+
+      
     if @article.save
       flash[:notice] = "Article was successfully created."
       redirect_to @article
-      debugger
+
     else
       render :new, status: :unprocessable_entity
-      debugger
+
+
     end
   end
 
@@ -65,10 +63,22 @@ class ArticlesController < ApplicationController
     redirect_to root_path, status: :see_other
   end
 
+
+  def join 
+
+    @category = Category.all
+    @article = Article.all
+
+
+  end
+
   private
   def article_params
-    params.require(:article).permit(:title, :body, :status, category_ids: [])
+
+    params.require(:article).permit(:title, :body, :status, :category_ids => [])
+
   end
+
 end
 
 
