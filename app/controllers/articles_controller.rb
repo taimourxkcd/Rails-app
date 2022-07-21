@@ -9,6 +9,8 @@ class ArticlesController < ApplicationController
 
     @q2 = Article.ransack(params[:q])
 
+    @category = Category.all
+
 
   end  
 
@@ -28,15 +30,17 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @timer = Time.current
+
       @article = Article.new(article_params)
       @article.user = current_user
-      
+    
     if @article.save
       flash[:notice] = "Article was successfully created."
       redirect_to @article
+      debugger
     else
       render :new, status: :unprocessable_entity
+      debugger
     end
   end
 
@@ -63,7 +67,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :body, :status)
+    params.require(:article).permit(:title, :body, :status, category_ids: [])
   end
 end
 
