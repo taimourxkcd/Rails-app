@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
 
       @article.category_ids = article_params[:category_ids]
       @article.save!
-  
+
       
     if @article.save
       flash[:notice] = "Article was successfully created."
