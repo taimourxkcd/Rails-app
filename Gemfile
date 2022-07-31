@@ -7,6 +7,8 @@ gem 'bootstrap-sass', '3.4.1'
 gem 'sass-rails'
 gem 'will_paginate', '~> 3.3' 
 gem 'ransack'
+gem 'activeadmin'
+gem 'devise'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
